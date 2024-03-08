@@ -1,0 +1,208 @@
+{
+  "last_node_id": 5,
+  "last_link_id": 7,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "PA_BaseModelLoader_fromhub_Zho",
+      "pos": [
+        321,
+        582
+      ],
+      "size": [
+        330,
+        70
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "pipe",
+          "type": "PAMODEL",
+          "links": [
+            3
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PA_BaseModelLoader_fromhub_Zho"
+      },
+      "widgets_values": [
+        "PixArt-alpha/PixArt-XL-2-1024-MS"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "PA_Styler_Zho",
+      "pos": [
+        320,
+        700
+      ],
+      "size": [
+        330,
+        260
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "positive_prompt",
+          "type": "STRING",
+          "links": [
+            4
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "negative_prompt",
+          "type": "STRING",
+          "links": [
+            5
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PA_Styler_Zho"
+      },
+      "widgets_values": [
+        "Modern luxury contemporary luxury home interiors house, in the style of mimicking ruined materials, ray tracing, haunting houses, and stone, capture the essence of nature, gray and bronze, dynamic outdoor shots.",
+        "asymmetry, worst quality, low quality",
+        "Cinematic"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "PA_Generation_Zho",
+      "pos": [
+        320,
+        1010
+      ],
+      "size": [
+        330,
+        240
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pipe",
+          "type": "PAMODEL",
+          "link": 3
+        },
+        {
+          "name": "positive",
+          "type": "STRING",
+          "link": 4,
+          "widget": {
+            "name": "positive"
+          },
+          "slot_index": 1
+        },
+        {
+          "name": "negative",
+          "type": "STRING",
+          "link": 5,
+          "widget": {
+            "name": "negative"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            7
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PA_Generation_Zho"
+      },
+      "widgets_values": [
+        "",
+        "",
+        2048,
+        1024,
+        25,
+        3,
+        "SA-Solver",
+        227440295445329,
+        "randomize"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "PreviewImage",
+      "pos": [
+        670,
+        580
+      ],
+      "size": [
+        1280,
+        670
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 7
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    }
+  ],
+  "links": [
+    [
+      3,
+      2,
+      0,
+      4,
+      0,
+      "PAMODEL"
+    ],
+    [
+      4,
+      5,
+      0,
+      4,
+      1,
+      "STRING"
+    ],
+    [
+      5,
+      5,
+      1,
+      4,
+      2,
+      "STRING"
+    ],
+    [
+      7,
+      4,
+      0,
+      3,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
