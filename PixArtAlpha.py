@@ -90,6 +90,7 @@ class PA_Generation_Zho:
                 "guidance_scale": ("FLOAT", {"default": 4.5, "min": 0, "max": 20}),
                 "schedule": (["DPM-Solver", "SA-Solver"],),
                 "seed": ("INT", {"default": 0, "min": 0, "max": 0xffffffffffffffff}),
+                "batch_size": ("INT", {"default": 1, "min": 1, "max": 8}),
             }
         }
 
@@ -97,7 +98,7 @@ class PA_Generation_Zho:
     FUNCTION = "generate_image"
     CATEGORY = "🖼️PixArtAlpha"
                        
-    def generate_image(self, positive, negative, pipe, steps, guidance_scale, seed, width, height, schedule):
+    def generate_image(self, positive, negative, pipe, steps, guidance_scale, seed, width, height, schedule, batch_size):
 
         if schedule == 'DPM-Solver':
             if not isinstance(pipe.scheduler, DPMSolverMultistepScheduler):
@@ -118,6 +119,7 @@ class PA_Generation_Zho:
             guidance_scale=guidance_scale,
             width=width,
             height=height,
+            num_images_per_prompt=batch_size,
             )
       
         # 检查输出类型并相应处理

@@ -45,6 +45,7 @@ Unofficial implementation of [PixArt-alpha-Diffusers](https://github.com/PixArt-
     - guidance_scale：提示词相关度，DPM-Solver默认为4.5，SA-Solver默认为3
     - schedule：2种调度器，DPM-Solver 和 SA-Solver
     - seed：种子
+    - batch_size：一次运行出图张数
 
 
 ## 安装 | Install
