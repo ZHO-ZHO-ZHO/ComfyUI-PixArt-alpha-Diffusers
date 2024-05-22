@@ -1,0 +1,15 @@
+[project]
+name = "comfyui-pixart-alpha-diffusers"
+description = "Unofficial implementation of [a/PixArt-alpha-Diffusers](https://github.com/PixArt-alpha/PixArt-alpha) for ComfyUI"
+version = "1.0.0"
+license = "LICENSE"
+dependencies = ["diffusers", "transformers", "sentencepiece"]
+
+[project.urls]
+Repository = "https://github.com/ZHO-ZHO-ZHO/ComfyUI-PixArt-alpha-Diffusers"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-PixArt-alpha-Diffusers"
+Icon = ""
